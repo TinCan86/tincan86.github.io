@@ -1,36 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html class="space">
     <head>
         <meta charset="UTF-8">
         <meta name="Robert" content="Robert Hansson">
         
         <title>Roberts portalsida</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link rel="stylesheet" href="/css/style.css">
     </head>
 <body>
-<h1>Övning 6 - Skapa en knapp</h1>
-
-    
-<h3>Welcome to the awesome game!</h3><br>
-
-<p>För att starta, fyll i och bege dig it i rymden!</p>
-<p>Du kan se Call-To-Action knappen</p>    
-<form class="form" action="action_page.php">
-  <br>
-  <input class="game-input" type="text" placeholder="Username">
-  <br>
-  <input class="game-input" type="text" placeholder="Planet">
-  <br>
-  <input class="game-input" type="text" placeholder="Destination">
-  <br>
-  <button href="#" class="btn-accept">Go to space!</button>
-  <br>
-  <br>
-  <button href="#" class="btn-cancel">Cancel</button>
-</form> 
-<br>
-<br>
-    <br>
-<a type="button" href="/index.html">Go back to index</a>
+<div class="container-fluid space">
+<div class="row">
+    <div class="col-md-6 text-center space-box">
+            <h1 style="color: white;">Welcome to the awesome game!</h1><br>
+            <p style="color: white; font-size: 18px;">För att starta, fyll i och bege dig it i rymden!</p>
+            <p style="color: white; font-size: 18px;">Du kan se Call-To-Action knappen</p>   
+            <center>
+                <form class="form" action="action_page.php">
+                <br>
+                <input class="game-input" type="text" placeholder="Username">
+                <br>
+                <input class="game-input" type="text" placeholder="Planet">
+                <br>
+                <input class="game-input" type="text" placeholder="Destination">
+                <br>
+                <button href="#" class="btn-accept">Go to space!</button>
+                <br>
+                <br>
+                <a href="#" class="btn-cancel btn">Cancel</a>
+                </form>
+            </center>
+            <br>
+            <br>
+        <br>
+    </div>
+    <div class="col-md-4">
+      
+       </div>
+    <div class="col-md-4 space-box">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Övning 6 - Call-To-Action</h4></div>
+      <div class="panel-body">
+       <h1>Övning 6 - Call-To-Action</h1>
+          <p>Läs artiklarna Good Call-To-Action Buttons och The Ultimate UX Design of the Perfect CTA Button.
+Skapa en webbsida med HTML och CSS. Sidan ska innehålla ett formulär med ett button-element.<br><br> Formuläret kan handla om vad som helst, det viktiga den här gången är att fokusera på button-elementen. Tänk på det vi har pratat om och ni har läst, särskilt call-to-action, för att designa en så bra button som möjligt.
+<br><br>
+Bonusuppgift: designa en button som bryter mot så många som möjligt av designreglerna!
+<br><br></p>      
+    </div>
+    </div>
+       <a href="/index.html" class="btn btn-primary">Tillbaka till första sidan</a> </div>
+        </div>
+    </div>   
 </body>
 </html>
