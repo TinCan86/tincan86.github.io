@@ -67,3 +67,8 @@ html {
     height: 35px;
     font-size: 22px;
 }
+
+.start-index {
+    font-size: 24px;
+    list-style: none;
+}
