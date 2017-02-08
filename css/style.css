@@ -20,8 +20,11 @@ html, body, h1, h2, h3, h4, h5 {
 .jumbo-color {
     color: #f0eeee;
     border-radius: 15px;
+    background-color: #000;
+/*
     background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.2)), url("/img/portal.jpg");
-	background-size: 100% 110%; /* Bakgrunden täcker hela ytan */
+	background-size: 100% 110%;  Bakgrunden täcker hela ytan 
+*/
 }
 
 .case-text {
