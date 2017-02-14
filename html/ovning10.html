@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Robert" content="Robert Hansson">
+        
+        <title>Roberts portalsida</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- <script src="myScript.js"></script> !-->
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        
+        <script>
+            var names = [];
+            
+            function myFunction()
+            {
+             
+             var nodeList = document.createElement("LI");
+             nodeList.className = "theList";
+             //Kan sätta Id med namnet list här.     
+             nodeList.setAttribute("id", "list"); 
+             //Här säger vi att x är elementet box
+             var x = document.getElementById("box");
+             //Förenklar inputvärdet till en variabel, så vi kan kolla det med en if sats.
+             var inputValue = document.getElementById("input").value;
+             
+              
+             if(inputValue == "") 
+             {
+                alert("Tom input, gör om!");    
+             }
+             else 
+             {
+             var inputNode = document.createTextNode(inputValue);     
+             nodeList.appendChild(inputNode);
+             document.getElementById("box").appendChild(nodeList);
+             
+                 
+             //Vi tar listan names och pushar vad som finns i elementet med Id "input" och viktigt med .value efteråt.     
+             //names.push(inputValue);
+             //Joinar box med names och skapar en br.
+             //x.innerHTML = names.join('<br/>'); 
+                
+             //Här kan man ändra formatet på boxen med .style.blabla
+             //document.getElementById('box').style.backgroundColor='green';
+             //document.getElementById('box').style.color='white';
+             //var createLi = document.createElement('li');
+             }
+            }   
+            
+            function mouseDown() {
+            document.getElementById("LI").style.backgroundColor = "orange";
+            }
+            
+            function removeName() {
+                names.pop();               
+            }
+            
+        </script>
+        
+    </head>
+<body>
+    
+    
+<!--
+<div class="navbar navbar-inverse navbar-fixed-left">
+  <ul class="nav navbar-nav"> 
+   <li><a href="/html/ovning1.html">IKON Hem</a></li>
+   <li><a href="/html/ovning1.html">Övning 1</a></li>
+   <li><a href="/html/ovning4.html">Övning 4</a></li>
+   <li><a href="/html/ovning6.html">Övning 6</a></li>
+  </ul>
+</div> */
+-->
+<div class="container-fluid ovning">
+<div class="row">
+   <div class="col-md-4">
+      <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Övning 10 - Inlämningsuppgift</h4></div>
+      <div class="panel-body">
+       <h1>Övning 10 - Javascript</h1>
+    <h3>Gör en sida</h3><br>
+<p>Skriv ett HTML-dokument som innehåller följande element: en textruta, en knapp och en lista. När man klickar på knappen så ska det läggas till ett nytt element sist i listan, som har samma text som den som står i textrutan. När man klickar på någon av elementen i listan så ska texten i textrutan ersättas med det som står i elementet man klickade på. Dessutom så ska elementen i listan byta bakgrundsfärg när man klickar på dem.
+<br><br>
+VG-nivå: man ska bara kunna välja ett element i listan åt gången. Lägg till två knappar. När ett element är valt ska man kunna ändra texten med hjälp av textrutan och den ena nya knappen. Man ska också kunna ta bort ett element.
+</p>
+<br>     
+    </div>
+    </div>
+       <a href="/index.html" class="btn btn-primary">Tillbaka till första sidan</a> 
+    </div>
+    <div class="col-md-4">
+        <form>
+      <input id="input" type=text>
+       <input type=button onclick="myFunction()" value="Button"/>
+      </form>
+     <div>
+         <ul id="box">
+            <li id="LI" onmousedown="mouseDown()">Name</li>
+         </ul>
+    </div>      
+    </div>
+    <div class="col-md-4">
+    
+
+    
+    </div>
+ </div>
+</div> 
+    
+    
+    
+</body> 
+</html>

@@ -2,6 +2,45 @@ html, body, h1, h2, h3, h4, h5 {
     font-family: 'Roboto', sans-serif;
 }
 
+#box {
+    list-style: none;
+    padding-left: 0px;
+    padding-top: 5px;
+    
+}
+
+/* Remove margins and padding from the list */
+#box {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+#box li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+#box li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+#box li:hover {
+  background: #ddd;
+}
+
 .ovning {
     margin-top: 60px;
 }

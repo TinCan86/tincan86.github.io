@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Robert" content="Robert Hansson">
+        
+        <title>Roberts portalsida</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+<body>
+
+<div class="container-fluid ovning">
+<div class="row">
+   <div class="col-md-4">
+      <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Övning 11 - Class och AJAX</h4></div>
+      <div class="panel-body">
+       <h1>Övning 11 - Vanlig uppgift</h1>
+    <h3>Class och AJAX</h3><br>
+    <ol>
+        <li>Repetera XMLHttpRequest
+Skriv ett HTML-dokument med ett button element. Lägg till fler element efter behov. Alla resultat ska synas direkt på webbsidan. När man klickar på knappen ska ni göra ett AJAX GET request till URL http://forverkliga.se/JavaScript/api/simple.php 
+Sidan som ligger där är ett API som kan anropas på flera sätt.<br><br>
+
+Prova först att anropa API:et utan några värden i querystring. Använd XMLHttpRequest. Du ska få tillbaka en sträng som du kan göra om till ett objekt med JSON.parse(text). Skriv ut all information om objektet på HTML-sidan. Tips: använd for(let x in object) för att loopa över alla properties i objektet.</li><br>
+<li>Fetch
+Gör samma sak nu fast med Fetch i stället.</li><br>
+<li>Querystring
+Nu är det dags att använda querystring. Anropa API:et med key=value. Skriv ut objektet på samma sätt som i första uppgiften.</li>
+  </ol>
+<br>     
+    </div>
+    </div>
+       <a href="/index.html" class="btn btn-primary">Tillbaka till första sidan</a> 
+    </div>
+    <div class="col-md-4">
+        <button type="button" onclick="loadXMLHttpRequest()">Button</button><br><br>
+        <div id="demo"></div>
+    </div>
+    <div class="col-md-4"></div>
+ </div>
+</div>    
+</body>
+</html>
+
+<script>
+    
+function loadXMLHttpRequest() {
+    let ajax = new XMLHttpRequest();
+        
+    ajax.open('get', 'http://forverkliga.se/JavaScript/api/simple.php');
+    console.log(ajax);   
+    ajax.onreadystatechange = function() {
+	   if(ajax.readyState == 4 && ajax.status == 200)
+        {
+        
+        var myObj = JSON.parse(ajax.responseText);
+        console.log(myObj);    
+            
+        for(let x in myObj)
+        {
+           //ser till att det skriver ut till html dokumentet varje gång. x är propertyn och [x] är valuen på propertyn
+           document.getElementById("demo").innerHTML += x + ": " + myObj[x] + "</br>";     
+            
+        }
+        
+        //var Data = JSON.parse(ajax.responseText);
+        //console.log(Data);    
+		console.log(`Old way: ${ajax.responseText}`);   
+                      
+        }
+    }  
+    ajax.send();
+}
+    
+</script>
