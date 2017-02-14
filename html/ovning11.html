@@ -39,7 +39,7 @@ Nu är det dags att använda querystring. Anropa API:et med key=value. Skriv ut 
     </div>
     <div class="col-md-4">
         <button type="button" onclick="loadXMLHttpRequest()">Button</button><br><br>
-        <div id="demo"></div>
+        <div id="showBox"></div>
     </div>
     <div class="col-md-4"></div>
  </div>
@@ -53,24 +53,24 @@ function loadXMLHttpRequest() {
     let ajax = new XMLHttpRequest();
         
     ajax.open('get', 'http://forverkliga.se/JavaScript/api/simple.php');
-    console.log(ajax);   
+      
     ajax.onreadystatechange = function() {
 	   if(ajax.readyState == 4 && ajax.status == 200)
         {
         
         var myObj = JSON.parse(ajax.responseText);
-        console.log(myObj);    
+        //console.log(myObj);    
             
         for(let x in myObj)
         {
            //ser till att det skriver ut till html dokumentet varje gång. x är propertyn och [x] är valuen på propertyn
-           document.getElementById("demo").innerHTML += x + ": " + myObj[x] + "</br>";     
+           document.getElementById("showBox").innerHTML += x + ": " + myObj[x] + "</br>";     
             
         }
         
         //var Data = JSON.parse(ajax.responseText);
         //console.log(Data);    
-		console.log(`Old way: ${ajax.responseText}`);   
+		//console.log(`Old way: ${ajax.responseText}`);   
                       
         }
     }  
