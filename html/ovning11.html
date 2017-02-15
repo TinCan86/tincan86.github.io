@@ -38,6 +38,7 @@ Nu är det dags att använda querystring. Anropa API:et med key=value. Skriv ut 
        <a href="/index.html" class="btn btn-primary">Tillbaka till första sidan</a> 
     </div>
     <div class="col-md-4">
+        <h4>Gör endast första delen av uppgiften för att förstå hur man gör ett Request, fortsättning följer på inlämningsuppgiften!</h4>
         <button type="button" onclick="loadXMLHttpRequest()">Button</button><br><br>
         <div id="showBox"></div>
     </div>
@@ -59,7 +60,6 @@ function loadXMLHttpRequest() {
         {
         
         var myObj = JSON.parse(ajax.responseText);
-        //console.log(myObj);    
             
         for(let x in myObj)
         {

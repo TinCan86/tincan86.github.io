@@ -28,17 +28,105 @@
     <li>Hur många kvinnor finns det i Zimbabwe?</li>
     <li>Vilket land har minst befolkning?</li>
     <li>Vilken kontinent har högst befolkning?</li>
-</ol>
-      
+</ol>      
 <br>     
     </div>
     </div>
        <a href="/index.html" class="btn btn-primary">Tillbaka till första sidan</a> 
     </div>
+    
     <div class="col-md-4">
+        
+        <button id="btnXMLrequest">XML hämta</button>
+        <button id="btnNewWay">Fetch, funkar ej</button><br/><br/><br/>
+        
+        <div id="divAnswer" class="container-fluid"></div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div id="divOutPut" class="container-fluid"></div>
+    </div>
  </div>
 </div>    
 </body>
 </html>
+
+<script>
+
+//Lägger till en eventlistner som kör funktionen om knappen klickas.
+btnXMLrequest.addEventListener("click", XMLrequest);
+btnNewWay.addEventListener("click", newWay);
+    
+function XMLrequest() {
+    let div = document.getElementById("divOutPut")
+    let divAnswer = document.getElementById("divAnswer")
+    let ajax = new XMLHttpRequest();
+    ajax.open('get', 'http://forverkliga.se/JavaScript/api/simple.php?world=all');
+    ajax.onreadystatechange = function () {
+        
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            console.log(`Old Way: ${ajax.responseText}`)
+            let text = ajax.responseText;
+            let myObject = JSON.parse(text);
+            let totalPopulation = 0;
+            let peopleInEurope = 0;
+            let womenInZimbabew = 0;
+            let leastAmountPeople = 0;
+            let highestAmountPeople = 0;
+            
+            //Loop for totalPopulation.
+            for(let x in myObject)
+            {                                            
+                totalPopulation = totalPopulation + myObject[x].population;          
+            }
+            divAnswer.innerHTML += "Total population: " + totalPopulation + "</br>";
+            //console.log("totalPopulation: " + totalPopulation);
+            
+            //Loop for every piece of information
+            for (let x in myObject) {             
+                if(myObject[x].continent == 'Europe')  
+                {
+                    //divEu.innerHTML += "Continent: " + `${myObject[x].continent}` + " <strong>Population:</strong> " + `${myObject[x].population}`+ "</br>";
+                    peopleInEurope = peopleInEurope + myObject[x].population;   
+                }
+            }
+            divAnswer.innerHTML += "Total population in Europe: " + peopleInEurope + "</br>";
+            
+            //Loop for every piece of information
+            for (let x in myObject) {               
+                div.innerHTML += "Continent: " + `${myObject[x].continent}` + " Country: " + `${myObject[x].name}` + " <strong>Population:</strong> " + `${myObject[x].population}`+ " Female ratio: " + `${myObject[x].pFemale}` + "</br>";
+            }
+            
+            
+        }
+    }
+    ajax.send();
+}
+
+function newWay() {
+    fetch('http://forverkliga.se/JavaScript/api/simple.php?world=all')
+  .then(
+    function (response) {
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              response.status);
+            return;
+        }
+
+        // Examine the text in the response  
+        response.json().then(function (json) {
+            console.log(json);
+            for (let x in json) {
+                let div = document.getElementById("divOutPut")
+                //let jsoncontent = document.createTextNode(data)
+                //div.appendChild(jsoncontent)
+                div.innerHTML += "Continent: " + `${json[x].continent}` + " Country: " + `${json[x].name}` + " Population: " + `${jsonobj[x].population}` + "</br>";
+            }
+        });
+    }
+  )
+  .catch(function (err) {
+      console.log('Fetch Error :-S', err);
+  });
+}    
+    
+</script>

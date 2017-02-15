@@ -11,70 +11,8 @@
         <!-- <script src="myScript.js"></script> !-->
         <link rel="stylesheet" href="/css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        
-        <script>
-            var names = [];
-            
-            function myFunction()
-            {
-             
-             var nodeList = document.createElement("LI");
-             nodeList.className = "theList";
-             //Kan sätta Id med namnet list här.     
-             nodeList.setAttribute("id", "list"); 
-             //Här säger vi att x är elementet box
-             var x = document.getElementById("box");
-             //Förenklar inputvärdet till en variabel, så vi kan kolla det med en if sats.
-             var inputValue = document.getElementById("input").value;
-             
-              
-             if(inputValue == "") 
-             {
-                alert("Tom input, gör om!");    
-             }
-             else 
-             {
-             var inputNode = document.createTextNode(inputValue);     
-             nodeList.appendChild(inputNode);
-             document.getElementById("box").appendChild(nodeList);
-             
-                 
-             //Vi tar listan names och pushar vad som finns i elementet med Id "input" och viktigt med .value efteråt.     
-             //names.push(inputValue);
-             //Joinar box med names och skapar en br.
-             //x.innerHTML = names.join('<br/>'); 
-                
-             //Här kan man ändra formatet på boxen med .style.blabla
-             //document.getElementById('box').style.backgroundColor='green';
-             //document.getElementById('box').style.color='white';
-             //var createLi = document.createElement('li');
-             }
-            }   
-            
-            function mouseDown() {
-            document.getElementById("LI").style.backgroundColor = "orange";
-            }
-            
-            function removeName() {
-                names.pop();               
-            }
-            
-        </script>
-        
     </head>
 <body>
-    
-    
-<!--
-<div class="navbar navbar-inverse navbar-fixed-left">
-  <ul class="nav navbar-nav"> 
-   <li><a href="/html/ovning1.html">IKON Hem</a></li>
-   <li><a href="/html/ovning1.html">Övning 1</a></li>
-   <li><a href="/html/ovning4.html">Övning 4</a></li>
-   <li><a href="/html/ovning6.html">Övning 6</a></li>
-  </ul>
-</div> */
--->
 <div class="container-fluid ovning">
 <div class="row">
    <div class="col-md-4">
@@ -93,25 +31,61 @@ VG-nivå: man ska bara kunna välja ett element i listan åt gången. Lägg till
        <a href="/index.html" class="btn btn-primary">Tillbaka till första sidan</a> 
     </div>
     <div class="col-md-4">
-        <form>
-      <input id="input" type=text>
-       <input type=button onclick="myFunction()" value="Button"/>
-      </form>
-     <div>
-         <ul id="box">
-            <li id="LI" onmousedown="mouseDown()">Name</li>
-         </ul>
-    </div>      
+        
+        <input id="text" style="width: 50%;" /> <br/><br/>
+        <button id="btnChange">Modify</button>
+        <button id="btnDelete">Delete</button>
+        <button id="btnAdd">Add</button>
+        <br />
+        <br/>
+        <ul id="lista">
+            
+        </ul>
     </div>
     <div class="col-md-4">
-    
-
-    
+     
+        
     </div>
  </div>
 </div> 
-    
-    
-    
+
 </body> 
 </html>
+
+<script>
+
+//Lägga till i listan
+btnAdd.addEventListener("click", function () {
+    var text = document.getElementById("text");
+   let lista = document.getElementById("lista");
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode(text.value));
+    lista.appendChild(li);
+    text.value = "";
+})
+
+btnDelete.addEventListener("click", deleteElement)
+btnChange.addEventListener("click", changeText);
+lista.addEventListener("click", listClick);
+let select;
+
+//Markera i listan/clicka event
+function listClick(e) {
+    select = e.target;
+    var text = document.getElementById("text")
+    text.value = e.target.innerHTML;
+    e.target.style.backgroundColor = '#238d43';
+    e.target.style.color = 'white';
+}
+    
+function changeText() {
+    let text = document.getElementById("text");
+    select.innerHTML = text.value;
+    select.style.backgroundColor = "#c98e21";
+    select.style.color = "white";
+}
+    
+function deleteElement() {
+    lista.removeChild(select);
+}
+</script>

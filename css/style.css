@@ -2,7 +2,16 @@ html, body, h1, h2, h3, h4, h5 {
     font-family: 'Roboto', sans-serif;
 }
 
-#box {
+#text {
+    font-size: 20px;
+}
+
+#btnAdd, #btnDelete, #btnChange {
+    font-size: 16px;
+    width: 100px;
+}
+
+#lista {
     list-style: none;
     padding-left: 0px;
     padding-top: 5px;
@@ -10,13 +19,14 @@ html, body, h1, h2, h3, h4, h5 {
 }
 
 /* Remove margins and padding from the list */
-#box {
+#lista {
   margin: 0;
   padding: 0;
 }
 
 /* Style the list items */
-#box li {
+#lista li {
+  width: 50%;
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
@@ -32,12 +42,12 @@ html, body, h1, h2, h3, h4, h5 {
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
-#box li:nth-child(odd) {
+#lista li:nth-child(odd) {
   background: #f9f9f9;
 }
 
 /* Darker background-color on hover */
-#box li:hover {
+#lista li:hover {
   background: #ddd;
 }
 
