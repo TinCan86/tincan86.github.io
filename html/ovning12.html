@@ -73,7 +73,7 @@ function XMLrequest() {
             let leastAmountPeople = 0;
             let highestAmountPeople = 0;
             
-            //Loop for totalPopulation.
+            //Fråga 1, loop for totalPopulation.
             for(let x in myObject)
             {                                            
                 totalPopulation = totalPopulation + myObject[x].population;          
@@ -81,22 +81,128 @@ function XMLrequest() {
             divAnswer.innerHTML += "Total population: " + totalPopulation + "</br>";
             //console.log("totalPopulation: " + totalPopulation);
             
-            //Loop for every piece of information
+            //Fråga 2
             for (let x in myObject) {             
                 if(myObject[x].continent == 'Europe')  
                 {
-                    //divEu.innerHTML += "Continent: " + `${myObject[x].continent}` + " <strong>Population:</strong> " + `${myObject[x].population}`+ "</br>";
                     peopleInEurope = peopleInEurope + myObject[x].population;   
                 }
             }
             divAnswer.innerHTML += "Total population in Europe: " + peopleInEurope + "</br>";
             
-            //Loop for every piece of information
-            for (let x in myObject) {               
-                div.innerHTML += "Continent: " + `${myObject[x].continent}` + " Country: " + `${myObject[x].name}` + " <strong>Population:</strong> " + `${myObject[x].population}`+ " Female ratio: " + `${myObject[x].pFemale}` + "</br>";
+            //Fråga 3
+            for(let x in myObject) 
+            {
+                if(myObject[x].name == 'Zimbabwe')  
+                {
+                    womenInZimbabew = myObject[x].pFemale * myObject[x].population;   
+                }
+                
+            }
+            divAnswer.innerHTML += "Total females in Zimbabew: " + womenInZimbabew + "</br>";
+            //console.log("Women in zimba " + womenInZimbabew);
+            
+            //Fråga 4
+            for(let x in myObject) 
+            {
+                if(Math.min(myObject[x].population))  
+                {   
+                    leastAmountPeople = myObject[x].name;
+                }
+                
+            }
+            console.log("Least amount of people: " + leastAmountPeople);
+            divAnswer.innerHTML += "Country with least population: " + leastAmountPeople + "</br>";
+            
+            
+            //Fråga 5
+            let oceania = 0;
+            let africa =  0;
+            let asia =    0;
+            let south =   0; 
+            let north =   0;
+            let oceaniaName = "";
+            let africaName = "";
+            let asiaName =  "";
+            let southName = ""; 
+            let northName = "";
+            
+            for(let x in myObject) 
+            {  
+                if(myObject[x].continent == "Africa") 
+                {
+                    africa = africa + myObject[x].population;
+                    africaName = africaName + myObject[x].continent;
+                }
+                
+                if(myObject[x].continent == "Asia") 
+                {
+                    asia = asia + myObject[x].population;
+                    asiaName = myObject[x].continent;
+                }
+                
+                if(myObject[x].continent == "Oceania") 
+                {
+                    oceania = oceania + myObject[x].population;
+                    oceaniaName = oceaniaName + myObject[x].continent;
+                }
+                
+                if(myObject[x].continent == "South America") 
+                {
+                    south = south + myObject[x].population;
+                    southName = southName + myObject[x].continent;
+                }
+                
+                if(myObject[x].continent == "North America") 
+                {
+                    north = north + myObject[x].population;
+                    northName = northName + myObject[x].continent;
+                }
+                
+                //Räknar ut vilken kontinent som har mest invånare.
+                highestAmountPeople = Math.max(asia, africa, north, south, oceania, peopleInEurope)
+                
+                //Kollar om summan är lika någon av kontinenternas, för att sedan skriva ut namnet.
+                if(highestAmountPeople == asia)
+                {
+                    highestAmountPeople = asiaName;
+                }
+                
+                if(highestAmountPeople == africa)
+                {
+                    highestAmountPeople = africaName;
+                }
+                
+                if(highestAmountPeople == north)
+                {
+                    highestAmountPeople = northName;
+                }
+                
+                if(highestAmountPeople == south)
+                {
+                    highestAmountPeople = southName;
+                }
+                
+                if(highestAmountPeople == oceania)
+                {
+                    highestAmountPeople = oceaniaName;
+                }
+                
+                if(highestAmountPeople == peopleInEurope)
+                {
+                    highestAmountPeople = "Europe";
+                }
             }
             
+            console.log("Continent with highest amount of people: " + highestAmountPeople);
+            divAnswer.innerHTML += "Continent with highest amount of people: " + highestAmountPeople + "</br>";
             
+            //Loop for every piece of information
+            for (let x in myObject) {               
+                
+                div.innerHTML += "Continent: " + `${myObject[x].continent}` + " Country: " + `${myObject[x].name}` + " <strong>Population:</strong> " + `${myObject[x].population}`+ " Female ratio: " + `${myObject[x].pFemale}` + "</br>";
+            }
+                        
         }
     }
     ajax.send();
