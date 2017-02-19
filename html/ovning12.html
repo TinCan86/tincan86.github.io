@@ -37,13 +37,14 @@
     
     <div class="col-md-4">
         
-        <button id="btnXMLrequest">XML hämta</button>
-        <button id="btnNewWay">Fetch, funkar ej</button><br/><br/><br/>
+        <button id="btnXMLrequest" class="btn btn-success">XML hämta</button>
+        <button id="btnFetch" class="btn btn-danger">Fetch, funkar ej</button><br/><br/><br/>
         
-        <div id="divAnswer" class="container-fluid"></div>
+        <h3>Answers</h3>
+        <div id="divAnswer" class="container-fluid well"></div>
     </div>
     <div class="col-md-4">
-        <div id="divOutPut" class="container-fluid"></div>
+        <div id="divOutPut" class="container-fluid well"></div>
     </div>
  </div>
 </div>    
@@ -54,7 +55,7 @@
 
 //Lägger till en eventlistner som kör funktionen om knappen klickas.
 btnXMLrequest.addEventListener("click", XMLrequest);
-btnNewWay.addEventListener("click", newWay);
+btnFetch.addEventListener("click", fetchWay);
     
 function XMLrequest() {
     let div = document.getElementById("divOutPut")
@@ -78,7 +79,7 @@ function XMLrequest() {
             {                                            
                 totalPopulation = totalPopulation + myObject[x].population;          
             }
-            divAnswer.innerHTML += "Total population: " + totalPopulation + "</br>";
+            divAnswer.innerHTML += "Total population: " + "<strong>" + totalPopulation + "</strong>" + "</br>";
             //console.log("totalPopulation: " + totalPopulation);
             
             //Fråga 2
@@ -88,7 +89,7 @@ function XMLrequest() {
                     peopleInEurope = peopleInEurope + myObject[x].population;   
                 }
             }
-            divAnswer.innerHTML += "Total population in Europe: " + peopleInEurope + "</br>";
+            divAnswer.innerHTML += "Total population in Europe: " + "<strong>" + peopleInEurope + "</strong>" + "</br>";
             
             //Fråga 3
             for(let x in myObject) 
@@ -99,7 +100,7 @@ function XMLrequest() {
                 }
                 
             }
-            divAnswer.innerHTML += "Total females in Zimbabew: " + womenInZimbabew + "</br>";
+            divAnswer.innerHTML += "Total females in Zimbabew: " + "<strong>" + womenInZimbabew + "</strong>" + "</br>";
             //console.log("Women in zimba " + womenInZimbabew);
             
             //Fråga 4
@@ -112,7 +113,7 @@ function XMLrequest() {
                 
             }
             console.log("Least amount of people: " + leastAmountPeople);
-            divAnswer.innerHTML += "Country with least population: " + leastAmountPeople + "</br>";
+            divAnswer.innerHTML += "Country with least population: " + "<strong>" + leastAmountPeople + "</strong>" + "</br>";
             
             
             //Fråga 5
@@ -195,7 +196,7 @@ function XMLrequest() {
             }
             
             console.log("Continent with highest amount of people: " + highestAmountPeople);
-            divAnswer.innerHTML += "Continent with highest amount of people: " + highestAmountPeople + "</br>";
+            divAnswer.innerHTML += "Continent with highest amount of people: " + "<strong>" + highestAmountPeople + "</strong>" + "</br>";
             
             //Loop for every piece of information
             for (let x in myObject) {               
@@ -208,7 +209,7 @@ function XMLrequest() {
     ajax.send();
 }
 
-function newWay() {
+function fetchWay() {
     fetch('http://forverkliga.se/JavaScript/api/simple.php?world=all')
   .then(
     function (response) {

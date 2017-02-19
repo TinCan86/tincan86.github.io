@@ -60,7 +60,7 @@ function Welcome(props) {
   return <p>Hello, {props.name}</p>;
 }
 
-const element = <Welcome name="Sara" />;
+const element = <Welcome name="David" />;
 
 ReactDOM.render(
     <div>
@@ -69,3 +69,8 @@ ReactDOM.render(
     </div>,
   document.getElementById('uppgift4')
 );
+
+//Övning 14, inlämningsuppgift! 
+
+
+

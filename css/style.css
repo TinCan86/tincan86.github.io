@@ -11,6 +11,17 @@ html, body, h1, h2, h3, h4, h5 {
     width: 100px;
 }
 
+#divOutPut {
+    padding: 0px;
+    
+}
+
+#divAnswer {
+    font-size: 16px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
 #lista {
     list-style: none;
     padding-left: 0px;
@@ -26,7 +37,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 /* Style the list items */
 #lista li {
-  width: 50%;
+  width: 64%;
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
