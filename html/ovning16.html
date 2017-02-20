@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="Robert" content="Robert Hansson">
+        
+        <title>Roberts portalsida</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        
+       <!-- React script !-->
+        <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+        
+    </head>
+<body>
+    
+<div class="container-fluid ovning">
+<div class="row">
+   <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h4>Övning 16 - Inlämningsuppgift</h4></div>
+            <div class="panel-body">
+                <h1>Övning 16 - React Events</h1>
+                    <h3>Fortsättning på 12</h3><br>
+                        <p>Denna uppgift bygger vidare på uppgift 12. Observera att det är förbjudet att använda addEventListener, alla events ska hanteras med React.
+
+Din uppgift är att rendera en React-komponent som gör ett AJAX request och hämta en lista med JSON objekt. Börja med att välja ut ett lämpligt API. (Det är ok att använda landsinformationen på http://forverkliga.se/JavaScript/api/simple.php?world )
+AJAX ska göras när komponenten renderats första gången. Innan något svar kommit ska det stå ett lämpligt meddelande på sidan.<br><br>
+
+När svaret kommer ska det presenteras i en lista eller en tabell. Efter listan ska det stå hur många element som finns i den. Gör en eller flera komponenter för att visa informationen i ett JSON-objekt. Välj ut den viktigaste informationen. Använd HTML och CSS för att göra informationen lättläst. Det är inte ok att skriva ut en JSON-sträng direkt.<br><br>
+
+Användaren ska kunna klicka på ett element i listan för att markera det. Då ska det dyka upp ett sätt som användaren kan ta bort elementet.
+(Tips: använd conditional rendering.)
+<br><br>
+För VG:
+<br>1 När användaren klickar på något inuti elementet så ska texten ändras till ett textfält, så att användaren kan ändra texten i listan direkt.
+
+<br>2 Lägg till ett textfält. När användaren skriver text i det ska listan filtreras, så att bara de element som innehåller texten i textfältet ska renderas.
+
+<br><br>Några användbara events: onClick, onChange, onBlur, onKeyPress</p>
+                    <br>     
+            </div>
+      </div>
+    <a href="/index.html" class="btn btn-primary">Tillbaka till första sidan</a> 
+   </div>
+    <div class="col-md-4">
+        <div id="root"></div>
+    </div>
+    
+    <div class="col-md-4">
+        
+    </div>
+</div>
+</div> 
+<script src="/js/ovning15.js" type="text/babel"></script>
+</body>
+</html>
