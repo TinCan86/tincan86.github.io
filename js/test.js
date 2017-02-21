@@ -1,4 +1,4 @@
-class Calculator extends React.Component {
+class NameForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -62,9 +62,9 @@ class Calculator extends React.Component {
                     <input type="submit" value="Submit" />
                 </form>
                 <div className="well">
-                    <h4>Första: {this.state.firstValue}</h4>
-                    <h4>Andra: {this.state.secondValue}</h4>
-                    <h2>Resultat: {this.state.firstValue} + {this.state.secondValue} = {this.state.output}</h2>
+                    <h3>Namn: {this.state.firstValue}</h3>
+                    <h4>Ålder: {this.state.secondValue}</h4>
+                    <h2>{this.state.output}</h2>
                 </div>
             </div>
         );
@@ -72,6 +72,6 @@ class Calculator extends React.Component {
 }
 
 ReactDOM.render(
-  <Calculator />,
+  <NameForm />,
   document.getElementById('root')
 );
