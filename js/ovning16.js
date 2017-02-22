@@ -7,30 +7,22 @@ constructor(props) {
             requestFailed: false,
             list: []
         } 
-        this.handleClickOnList = this.handleClickOnList.bind(this);
+        
 }
-    
-handleClickOnList(event) {
-        this.setState({ list: event.target.value });
-    } 
     
 componentDidMount() {    
     fetch(urlForWorldApi(this.props.countryListInformation))
     .then(response => {
         if(!response.ok) {
             throw Error("Network request failed")
-        }
-        
+        }     
         return response
     })
       .then(data => data.json())
-      .then(data => {
-        console.log(data);
-        
+      .then(data => {          
         this.setState({
             list: data
         })
-        //den skriver ut en lista med object där allt finns.
            
         console.log(data);
     }, () => {       
@@ -39,6 +31,17 @@ componentDidMount() {
         })
     })    
 }    
+  
+
+ handleDeleteItem(index) {
+     
+     //Gör listan till countries.
+     let countries = this.state.list;
+     //countries tar bort 1 ifrån index som är markerat.
+     countries.splice(index, 1);
+     
+     this.setState({ list: countries })
+ }  
     
   render() {
         if (this.state.requestFailed) return <p>Failed!</p>
@@ -47,31 +50,59 @@ componentDidMount() {
         else {
             return (
                 <div>
-                    <h3 className='well'>There is {this.state.list.length} countries in the list</h3>
-                    <CountryList list={this.state.list}/>
-                <div className="well">
-                                    
+                    <h2>Country Name List</h2>
+                    <CountryList countries={this.state.list} onDelete={this.handleDeleteItem.bind(this)}/>
+                    <h3 className='well'>Total: {this.state.list.length}</h3>
+                <div className="well">                    
                 </div>
+                
                 </div>
             )}
     }
-    //slutet av klassen
 }
 
-function CountryList(props) {
-
-    const countryListSorted = props.list.map((list, index) =>
-            <li key={index} value={index} className='list-group-item'>{index + 1}. {list.name} - {list.continent}</li>
-    );
+class CountryList extends React.Component {
+    constructor(props) {
+            super(props)
+            this.state = {
+                    selectedCountryIndex: null
+            } 
+    }
     
-    return (
+    handleClickOnList(index, event) {
+        console.log(index);
+        console.log(event);   
+        this.setState ({ selectedCountryIndex: index })
+          
+        //this.setState({ list: event.target.value });
+    } 
+    
+    handleDeleteItem() {
+        this.props.onDelete(this.state.selectedCountryIndex);
+    }
+
+    render() {
+        const countryListSorted = this.props.countries.map((country, index) =>
+            <li 
+                onClick={this.handleClickOnList.bind(this, index)}
+                key={index} 
+                value={index} 
+                className={'list-group-item ' + (this.state.selectedCountryIndex === index ? 'selected' : '')}>
+                 
+                {index + 1}. {country.name} <button onClick={this.handleDeleteItem.bind(this)} className='btn-danger pull-right'>Delete</button>
+           </li>
+        );
+
+        return (
         <div>
             <ul className='list-group'>
                 {countryListSorted}           
             </ul>
         </div>       
-    );
+        );
+    }
 }
+
 
 
 ReactDOM.render(

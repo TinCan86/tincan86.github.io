@@ -183,6 +183,13 @@ html, body, h1, h2, h3, h4, h5 {
     font-size: 22px;
 }
 
+
+.selected {
+    background-color: orange;
+    color: white;
+}
+
+
 /*-------- Navbar ---------*/
 
 .navbar-inverse .navbar-nav>li>a {
