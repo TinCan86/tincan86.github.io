@@ -14,8 +14,6 @@ class Calculator extends React.Component {
     }
 
     handleFirstValueChange(event) {
-        //2. Den här tar emot ändringarna. Namnet ligger i event.target.value
-        //3. Du uppdaterar statet så att value nu är det namnet du har skrivit
         this.setState({ firstValue: event.target.value });
     }
 
@@ -29,7 +27,7 @@ class Calculator extends React.Component {
         
     handleSubmit(event) {
         event.preventDefault();
-        //4. Uppdatera till databasen eller vad du vill
+
         const calc = {
             firstValue: this.state.firstValue,
             operator: this.state.operator,
@@ -37,35 +35,30 @@ class Calculator extends React.Component {
         }
         
         let result = eval(
-            this.state.firstValue + //ex. 3
-            this.state.operator + //ex. '+'
-            this.state.secondValue //ex. 7
+            this.state.firstValue + 
+            this.state.operator +
+            this.state.secondValue
         );
 
         this.setState({
             output: result
         })
-        //var result = (person.age + person.name);
-        //console.log(person);
-        console.log(result);
         return result;
     }
 
     render() {
-        //1. Så fort du skriver något i formen så anropas handleNameChange eller handleAgeChange
         return (
-            <div>
+            <div className="well mathBox text-center">
                 <form onSubmit={this.handleSubmit}>
-                    <input type="number" value={this.state.firstValue} onChange={this.handleFirstValueChange} />
-                    <input type="number" value={this.state.secondValue} onChange={this.handleSecondValueChange} />
-                    <br />
-                    <input type="submit" value="Submit" />
-                </form>
-                <div className="well">
-                    <h4>Första: {this.state.firstValue}</h4>
-                    <h4>Andra: {this.state.secondValue}</h4>
-                    <h2>Resultat: {this.state.firstValue} + {this.state.secondValue} = {this.state.output}</h2>
+                <div>
+                    <p>En addition miniräknare, tjoho!</p>
+                    <input className='inputValue' type="number" value={this.state.firstValue} onChange={this.handleFirstValueChange} />
+                    <input className='inputValue' type="number" value={this.state.secondValue} onChange={this.handleSecondValueChange} />
+                    <h2 className='panel'>= {this.state.output}</h2>
+                    <input className='btn btn-success' type="submit" value="Submit" />
                 </div>
+                </form>
+                
             </div>
         );
     }

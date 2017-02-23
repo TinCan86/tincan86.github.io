@@ -13,12 +13,12 @@ html, body, h1, h2, h3, h4, h5 {
 
 #divOutPut {
     padding: 0px;
-    
+    font-size: 15px;
 }
 
 #divAnswer {
-    font-size: 16px;
-    padding-left: 0px;
+    font-size: 18px;
+    padding-left: 10px;
     margin-left: 0px;
 }
 
@@ -112,10 +112,6 @@ html, body, h1, h2, h3, h4, h5 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("/img/Explorer.png");
 }
 
-.case-box {
-    
-}
-
 .btn-accept {
     width: 260px;
     height: 50px;
@@ -183,10 +179,36 @@ html, body, h1, h2, h3, h4, h5 {
     font-size: 22px;
 }
 
+/*-------- Övning 16 ---------*/
+
+.mathBox {
+    width: 450px;
+}
+
+.inputValue {
+    width: 205px;
+    font-size: 30px;
+}
+
+/*-------- Övning 16 ---------*/
 
 .selected {
-    background-color: orange;
+    background-color: #ef9a00;
     color: white;
+}
+
+.countryHeader {
+    width: 450px;
+}
+
+.customListGroup {
+    font-size: 16px;
+    width: 450px;
+}
+
+.deleteButtonDeluxe {
+    background-color: black;
+    font-size: 28px;
 }
 
 

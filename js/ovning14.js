@@ -31,15 +31,15 @@ function GameList(props) {
     
     //strukturen - elementet
     const gameList = props.games.map((game, index) =>
-        <div key={index} className='well'> 
-            {game.name} - {game.genre} - {game.price}
-        </div>
+        <li key={index} className='list-group-item'> 
+            {game.name} - {game.genre} - {game.price}kr
+        </li>
     );
     //Här kan man ändra html dokumentet lite som man vill. 
     return (
-        <div>
+        <ul className='list-group'>
             {gameList}
-        </div>
+        </ul>
     );
 }
 

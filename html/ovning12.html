@@ -37,8 +37,8 @@
     
     <div class="col-md-4">
         
-        <button id="btnXMLrequest" class="btn btn-success">XML hämta</button>
-        <button id="btnFetch" class="btn btn-danger">Fetch, funkar ej</button><br/><br/><br/>
+        <button id="btnXMLrequest" class="btn btn-success">Hämta information David</button>
+        <br/><br/><br/>
         
         <h3>Answers</h3>
         <div id="divAnswer" class="container-fluid well"></div>
@@ -209,6 +209,7 @@ function XMLrequest() {
     ajax.send();
 }
 
+//används ej
 function fetchWay() {
     fetch('http://forverkliga.se/JavaScript/api/simple.php?world=all')
   .then(
